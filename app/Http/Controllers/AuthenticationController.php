@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+
 
 class AuthenticationController extends Controller
 {
@@ -34,5 +36,10 @@ class AuthenticationController extends Controller
         return response()->json([
             'massage'=>'anda telah keluar'
         ]);
+    }
+
+    public function me(){
+        $user = Auth::User();
+        return response()->json($user);
     }
 }
