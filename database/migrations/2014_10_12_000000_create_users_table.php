@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('firstname');
             $table->string('lastname')->nullable();
-            $table->rememberToken();
             $table->timestamps();
 
             $table->softDeletes();
