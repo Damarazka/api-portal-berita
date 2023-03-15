@@ -34,12 +34,15 @@ class PostController extends Controller
         return new PostDetailResource($post->loadMissing('writer:id,username'));
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id){
         $request ->validate([
             'title' => 'required|max:225',
             'news_content'=>'required',
         ]);
-        return response()->json('syudah dapat di pakek');
 
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+        //return response()->json('syudah dapat di pakek');
+        return new PostDetailResource($post->loadMissing('writer','id','username'));
     }
 }
