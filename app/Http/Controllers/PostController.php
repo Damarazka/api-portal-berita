@@ -33,4 +33,13 @@ class PostController extends Controller
         $post = Post::create($request->all());
         return new PostDetailResource($post->loadMissing('writer:id,username'));
     }
+
+    public function update(Request $request){
+        $request ->validate([
+            'title' => 'required|max:225',
+            'news_content'=>'required',
+        ]);
+        return response()->json('syudah dapat di pakek');
+
+    }
 }
