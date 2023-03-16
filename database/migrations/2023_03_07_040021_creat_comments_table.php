@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('user_id');
-            $table->text('commment_content');
+            $table->text('comment_content');
             $table->timestamps();
 
             $table->softDeletes();
